@@ -5,12 +5,13 @@ from discord.ext import commands
 class Greeting(commands.Cog):
 
     def __init__(self, bot):
+        self.__name__ = "Greeting Extension"
         self.bot = bot
 
     # Events
     @commands.Cog.listener()
     async def on_ready(self):
-        print("Greeting Extension Loaded.")
+        print(f'loaded cog: {self.__name__}')
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
