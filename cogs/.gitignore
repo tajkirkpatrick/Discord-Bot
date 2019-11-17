@@ -1,2 +1,5 @@
-# Do Not Track These Directories
+# Do NOT track these directories
 __pycache__/
+
+# Do NOT track these files
+nba.py
