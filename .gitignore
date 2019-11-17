@@ -1,3 +1,5 @@
-#Do NOT Track these files
+#Do NOT track these files
+config.json
 
+#Do NOT track these directories
 .vscode/
