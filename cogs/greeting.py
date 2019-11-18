@@ -8,7 +8,7 @@ class Greeting(commands.Cog):
         self.__name__ = "Greeting Extension"
         self.bot = bot
 
-    # Events
+    # * Listeners
     @commands.Cog.listener()
     async def on_ready(self):
         print(f'loaded cog: {self.__name__}')
@@ -19,7 +19,7 @@ class Greeting(commands.Cog):
         if channel is not None:
             await channel.send('Welcome {0.mention} to GANG MEMBERS on Discord.\n I am Butler, the GANG Butler'.format(member))
 
-    # Commands
+    # * Commands
     @commands.command()
     async def ping(self, ctx):
         await ctx.send('pong!')
