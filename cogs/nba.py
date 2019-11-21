@@ -14,6 +14,7 @@ class NBA(commands.Cog):
         self.__name__ = "NBA Extension"
         self.bot = bot
         self.schedule_array = []
+        self.today = datetime.now().date()
 
     # * Listeners
     @commands.Cog.listener()
@@ -22,19 +23,26 @@ class NBA(commands.Cog):
         print(f'loaded cog: {self.__name__}')
 
     # * Commands
-    @commands.command()
+    @commands.command(aliases=['sch'])
     async def schedule(self, ctx):
-        today = datetime.now().date()
-        today_str = today.strftime("%B %-d, %Y")
-        today_compare = today.strftime("%Y-%m-%d")
-
-        await ctx.send(f"Today's Date: {today_str}")
+        today_str = self.today.strftime("%B %-d, %Y")
+        today_compare = self.today.strftime("%Y-%m-%d")
+        todays_games = []
 
         for game in self.schedule_array:
             if game['date'] == today_compare:
-                print(game)
+                todays_games.append(game)
 
-        await ctx.send("Butler is working on the output")
+        embed = discord.Embed(
+            title=f"NBA Games for {today_str}", description=f"I got you homie! This what you got on deck.")
+
+        count = 1
+        for game in todays_games:
+            embed.add_field(name=f"Game {count}",
+                            value=f"{game['visitor_name']} vs {game['home_name']} @ {game['gametimeET']} ET")
+            count += 1
+
+        await ctx.send(embed=embed)
 
     #  * Helpers
     def load_schedule(self):
