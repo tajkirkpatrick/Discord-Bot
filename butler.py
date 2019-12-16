@@ -15,17 +15,6 @@ async def on_ready():
     print("Bot Is Ready")
     print(discord.__version__)
 
-
-# @bot.event
-# async def on_error():
-#     print("\n\nSomething went wrong")
-
-
-@bot.command()
-async def pong(ctx):
-    await ctx.send('ping')
-
-
 @bot.command(aliases=['Search', 'Find', 'find'])
 async def search(ctx, *, args):
 
