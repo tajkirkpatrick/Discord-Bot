@@ -43,8 +43,9 @@ async def hello(ctx):
 async def clear(ctx, amount=2):
     if amount <= 0:
         await ctx.send("Yroo, I can't purge 0 messages. Try again!")
-
+    
     await ctx.channel.purge(limit=amount)
+
 
 
 @bot.command(hidden=True)

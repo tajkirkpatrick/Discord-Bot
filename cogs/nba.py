@@ -34,7 +34,7 @@ class NBA(commands.Cog):
                 todays_games.append(game)
 
         embed = discord.Embed(
-            title=f"NBA Games for {today_str}", description=f"I got you homie! This what you got on deck.")
+            title=f"NBA Games for {today_str}", description=f"I got you! This what you got on deck.")
 
         count = 1
         for game in todays_games:
